@@ -13,3 +13,7 @@ scene: !include scenes.yaml
 
 # Nest Stuff
 nest: !include nest.yaml
+
+# MySQL Recorder
+recorder:
+  db_url: mysql://homeassistant:C8JS2KYpqSRe@core-mariadb/homeassistant?charset=utf8
