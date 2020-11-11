@@ -17,3 +17,6 @@ nest: !include nest.yaml
 # MySQL Recorder
 recorder:
   db_url: mysql://homeassistant:C8JS2KYpqSRe@core-mariadb/homeassistant?charset=utf8
+
+sensor: !include_dir_merge_list sensor
+
