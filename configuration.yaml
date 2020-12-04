@@ -11,6 +11,9 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
+# Router
+asuswrt: !include asuswrt.yaml
+
 # Nest Stuff
 nest: !include nest.yaml
 
