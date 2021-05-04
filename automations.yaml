@@ -1,1 +1,28 @@
-[]
+- id: '1620141136807'
+  alias: Security Lighting Off
+  description: ''
+  trigger:
+  - platform: time
+    at: '21:23:00'
+  condition:
+  - condition: state
+    entity_id: camera.living_room
+    state: idle
+  action:
+  - delay: 00:{{ (range(5, 15) | random) }}:00
+  - service: script.security_lighting_off
+  mode: single
+- id: '1620141485436'
+  alias: Security Lighting On
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:25:00
+  condition:
+  - condition: state
+    entity_id: camera.living_room
+    state: recording
+  action:
+  - service: script.security_lighting_on
+  mode: single
