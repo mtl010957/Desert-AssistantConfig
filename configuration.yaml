@@ -2,6 +2,12 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+# Required http setup for reverse proxy
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.30.33.0/24  # Add the IP address of the proxy server
+    
 # Text to speech
 tts:
   - platform: google_translate
