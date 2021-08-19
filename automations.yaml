@@ -26,3 +26,15 @@
   action:
   - service: script.security_lighting_on
   mode: single
+- id: '1629380915732'
+  alias: Let's Encrypt Renewal
+  description: ''
+  trigger:
+  - platform: time
+    at: '3:20'
+  condition: []
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_letsencrypt
+  mode: single
