@@ -26,15 +26,11 @@
   action:
   - service: script.security_lighting_on
   mode: single
-- id: '1629380915732'
-  alias: Let's Encrypt Renewal
+- id: '1630506102319'
+  alias: Renew Let's Encrypt Certificate
   description: ''
-  trigger:
-  - platform: time
-    at: '3:20'
-  condition: []
-  action:
-  - service: hassio.addon_restart
-    data:
-      addon: core_letsencrypt
-  mode: single
+  use_blueprint:
+    path: mtl010957/renew_certificate_restart_nginx.yaml
+    input:
+      cert_expiry_sensor: sensor.cert_expiry_timestamp_ha_mtl_desert_dyndns_remote_com
+      time_to_check_cert: '3:20:00'
