@@ -8,6 +8,9 @@
   - condition: state
     entity_id: camera.living_room
     state: recording
+  - condition: state
+    entity_id: binary_sensor.desert_away
+    state: 'on'
   action:
   - delay: 00:{{ (range(5, 15) | random) }}:00
   - service: script.security_lighting_off
@@ -23,6 +26,9 @@
   - condition: state
     entity_id: camera.living_room
     state: recording
+  - condition: state
+    entity_id: binary_sensor.desert_away
+    state: 'on'
   action:
   - service: script.security_lighting_on
   mode: single
