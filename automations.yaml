@@ -39,4 +39,5 @@
     path: mtl010957/renew_certificate_restart_nginx.yaml
     input:
       cert_expiry_sensor: sensor.cert_expiry_timestamp_ha_mtl_desert_dyndns_remote_com
-      time_to_check_cert: '3:20:00'
+      time_to_check_cert: 03:20:00
+      renew_date: 14
