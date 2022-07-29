@@ -8,12 +8,14 @@
   - condition: state
     entity_id: camera.living_room
     state: recording
+    enabled: false
   - condition: state
     entity_id: binary_sensor.desert_away
     state: 'on'
   action:
   - delay: 00:{{ (range(5, 15) | random) }}:00
   - service: script.security_lighting_off
+    data: {}
   mode: single
 - id: '1620141485436'
   alias: Security Lighting On
@@ -26,11 +28,13 @@
   - condition: state
     entity_id: camera.living_room
     state: recording
+    enabled: false
   - condition: state
     entity_id: binary_sensor.desert_away
     state: 'on'
   action:
   - service: script.security_lighting_on
+    data: {}
   mode: single
 - id: '1630506102319'
   alias: Renew Let's Encrypt Certificate
