@@ -12,6 +12,12 @@
   - condition: state
     entity_id: binary_sensor.desert_away
     state: 'on'
+  - condition: state
+    entity_id: person.michael
+    state: not_home
+  - condition: state
+    entity_id: person.susan
+    state: not_home
   action:
   - delay: 00:{{ (range(5, 15) | random) }}:00
   - service: script.security_lighting_off
@@ -32,6 +38,12 @@
   - condition: state
     entity_id: binary_sensor.desert_away
     state: 'on'
+  - condition: state
+    entity_id: person.michael
+    state: not_home
+  - condition: state
+    entity_id: person.susan
+    state: not_home
   action:
   - service: script.security_lighting_on
     data: {}
