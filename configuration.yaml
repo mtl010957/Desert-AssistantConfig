@@ -21,7 +21,7 @@ sensor: !include_dir_merge_list sensor
 template: !include_dir_merge_list template
 
 # Nest Stuff
-nest: !include nest.yaml
+#nest: !include nest.yaml
 
 # Remote HA
 remote_homeassistant:
