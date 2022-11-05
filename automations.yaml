@@ -6,13 +6,6 @@
     at: '21:23:00'
   condition:
   - condition: state
-    entity_id: camera.living_room
-    state: recording
-    enabled: false
-  - condition: state
-    entity_id: binary_sensor.desert_away
-    state: 'on'
-  - condition: state
     entity_id: person.michael
     state: not_home
   - condition: state
@@ -31,13 +24,6 @@
     event: sunset
     offset: -00:25:00
   condition:
-  - condition: state
-    entity_id: camera.living_room
-    state: recording
-    enabled: false
-  - condition: state
-    entity_id: binary_sensor.desert_away
-    state: 'on'
   - condition: state
     entity_id: person.michael
     state: not_home
