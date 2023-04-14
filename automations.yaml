@@ -8,9 +8,14 @@
   - condition: state
     entity_id: person.michael
     state: not_home
-  - condition: state
-    entity_id: person.susan
-    state: not_home
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: person.susan
+      state: not_home
+    - condition: state
+      entity_id: person.susan
+      state: unknown
   action:
   - delay: 00:{{ (range(5, 15) | random) }}:00
   - service: script.security_lighting_off
@@ -27,9 +32,14 @@
   - condition: state
     entity_id: person.michael
     state: not_home
-  - condition: state
-    entity_id: person.susan
-    state: not_home
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: person.susan
+      state: not_home
+    - condition: state
+      entity_id: person.susan
+      state: unknown
   action:
   - service: script.security_lighting_on
     data: {}
@@ -61,4 +71,30 @@
       title: Refrigerator Voltage Low
       message: Refrigerator Voltage has been low for over 30 minutes, check the power
         connection!
+  mode: single
+- id: '1681488744643'
+  alias: Router LEDs Off Nighttime
+  description: ''
+  trigger:
+  - platform: time
+    at: '21:00:00'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 958ab389e26ad5b402f3fa7dbf91b8ba
+    entity_id: light.rt_ac68u_led
+    domain: light
+  mode: single
+- id: '1681489013152'
+  alias: 'Router LEDs On Daytime '
+  description: ''
+  trigger:
+  - platform: time
+    at: 09:00:00
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 958ab389e26ad5b402f3fa7dbf91b8ba
+    entity_id: light.rt_ac68u_led
+    domain: light
   mode: single
