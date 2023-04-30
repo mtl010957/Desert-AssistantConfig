@@ -1,36 +1,36 @@
 security_lighting_on:
   alias: Security Lighting On
   sequence:
-  - type: turn_on
-    device_id: e3690fed7cb621a930855a97fe14a0e4
-    entity_id: switch.desert_living_room_lamp
-    domain: switch
+  - type: turn_off
+    device_id: a9d36385a5681cdfcb1fc165d9abb3b2
+    entity_id: light.living_room_lamp
+    domain: light
   - delay: 00:{{ (range(10, 30) | random) }}:00
-  - type: turn_on
-    device_id: dd5acbe9959808fa414eeaff09d0aea1
-    entity_id: switch.desert_guest_room_desk_lamp
-    domain: switch
+  - type: turn_off
+    device_id: 15d4c489fdcf8414285d6e07d955ffea
+    entity_id: light.guest_room_lamp
+    domain: light
   - delay: 00:{{ (range(10, 30) | random) }}:00
-  - type: turn_on
-    device_id: f8e0ebfe2a60171def4b2a6bf6d7d5a4
-    entity_id: switch.desert_main_bedroom_lamp
-    domain: switch
+  - type: turn_off
+    device_id: 9688e1a9f98aa96ab02ac8283f53664c
+    entity_id: light.main_bedroom_lamp
+    domain: light
   mode: single
 security_lighting_off:
   alias: Security Lighting Off
   sequence:
   - type: turn_off
-    device_id: e3690fed7cb621a930855a97fe14a0e4
-    entity_id: switch.desert_living_room_lamp
-    domain: switch
+    device_id: a9d36385a5681cdfcb1fc165d9abb3b2
+    entity_id: light.living_room_lamp
+    domain: light
   - delay: 00:{{ (range(10, 30) | random) }}:00
   - type: turn_off
-    device_id: dd5acbe9959808fa414eeaff09d0aea1
-    entity_id: switch.desert_guest_room_desk_lamp
-    domain: switch
+    device_id: 15d4c489fdcf8414285d6e07d955ffea
+    entity_id: light.guest_room_lamp
+    domain: light
   - delay: 00:{{ (range(10, 30) | random) }}:00
   - type: turn_off
-    device_id: f8e0ebfe2a60171def4b2a6bf6d7d5a4
-    entity_id: switch.desert_main_bedroom_lamp
-    domain: switch
+    device_id: 9688e1a9f98aa96ab02ac8283f53664c
+    entity_id: light.main_bedroom_lamp
+    domain: light
   mode: single
