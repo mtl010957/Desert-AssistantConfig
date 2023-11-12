@@ -111,3 +111,16 @@
     target:
       device_id: 958ab389e26ad5b402f3fa7dbf91b8ba
   mode: single
+- id: '1699751793923'
+  alias: Notify When HA Started
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: notify.notify
+    data:
+      message: Desert HA Started
+      title: 'Desert HA Started '
+  mode: single
