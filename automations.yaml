@@ -121,6 +121,6 @@
   action:
   - service: notify.notify
     data:
-      message: Desert HA Started
-      title: 'Desert HA Started '
+      message: HA Has Started
+      title: 'HA Has Started '
   mode: single
