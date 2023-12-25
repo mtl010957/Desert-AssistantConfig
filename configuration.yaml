@@ -19,7 +19,6 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 recorder: !include recorder.yaml
 sensor: !include_dir_merge_list sensor
-template: !include_dir_merge_list template
 
 # Nest Stuff
 #nest: !include nest.yaml
