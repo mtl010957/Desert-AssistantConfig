@@ -109,7 +109,7 @@
   - service: homeassistant.reload_config_entry
     data: {}
     target:
-      device_id: 958ab389e26ad5b402f3fa7dbf91b8ba
+      device_id: 6850927c0bf1cfc4acb0783a402df1f2
   mode: single
 - id: '1699751793923'
   alias: Notify HA Started
