@@ -124,3 +124,17 @@
       message: HA has started
       title: 'HA Has Started '
   mode: single
+- id: '1712679216435'
+  alias: _TEMPORARY fix for NWS refresh
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /10
+  condition: []
+  action:
+  - service: homeassistant.reload_config_entry
+    target:
+      entity_id:
+      - weather.kryn_daynight
+    data: {}
+  mode: single
