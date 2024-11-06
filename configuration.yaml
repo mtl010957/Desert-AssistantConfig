@@ -24,3 +24,4 @@ recorder: !include recorder.yaml
 # Remote HA
 remote_homeassistant:
   instances:
+  
