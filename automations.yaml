@@ -81,8 +81,8 @@
   condition: []
   action:
   - type: turn_off
-    device_id: 958ab389e26ad5b402f3fa7dbf91b8ba
-    entity_id: light.rt_ac68u_led
+    device_id: 602613ae50b083026e367c8855ce5d40
+    entity_id: 594bac32dbac5ad3e9bd7e0bca8de62b
     domain: light
   mode: single
 - id: '1681489013152'
@@ -94,8 +94,8 @@
   condition: []
   action:
   - type: turn_on
-    device_id: 958ab389e26ad5b402f3fa7dbf91b8ba
-    entity_id: light.rt_ac68u_led
+    device_id: 602613ae50b083026e367c8855ce5d40
+    entity_id: 594bac32dbac5ad3e9bd7e0bca8de62b
     domain: light
   mode: single
 - id: '1691769290763'
@@ -106,10 +106,10 @@
     at: 03:40:00
   condition: []
   action:
-  - service: homeassistant.reload_config_entry
-    data: {}
+  - data: {}
+    action: homeassistant.reload_config_entry
     target:
-      device_id: 6850927c0bf1cfc4acb0783a402df1f2
+      device_id: 169806c6b7727cff80ce4afa6390a940
   mode: single
 - id: '1699751793923'
   alias: Notify HA Started
