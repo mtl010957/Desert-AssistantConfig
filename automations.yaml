@@ -160,3 +160,14 @@
   - action: shell_command.unmount_5850cam1
     data: {}
   mode: single
+- id: '1744393700645'
+  alias: Make Site
+  description: ''
+  triggers:
+  - trigger: time
+    at: '23:59:00'
+  conditions: []
+  actions:
+  - action: shell_command.make_site_bg
+    data: {}
+  mode: single
