@@ -138,3 +138,25 @@
       - weather.kryn_daynight
     data: {}
   mode: single
+- id: '1744393330799'
+  alias: Mount
+  description: ''
+  triggers:
+  - trigger: homeassistant
+    event: start
+  conditions: []
+  actions:
+  - action: shell_command.mount_5850cam1
+    data: {}
+  mode: single
+- id: '1744393378602'
+  alias: Unmount
+  description: ''
+  triggers:
+  - trigger: homeassistant
+    event: shutdown
+  conditions: []
+  actions:
+  - action: shell_command.unmount_5850cam1
+    data: {}
+  mode: single
