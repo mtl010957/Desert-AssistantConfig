@@ -75,27 +75,27 @@
 - id: '1681488744643'
   alias: Router LEDs Off Nighttime
   description: ''
-  trigger:
-  - platform: time
-    at: '21:00:00'
-  condition: []
-  action:
+  triggers:
+  - at: '21:00:00'
+    trigger: time
+  conditions: []
+  actions:
   - type: turn_off
-    device_id: 602613ae50b083026e367c8855ce5d40
-    entity_id: 594bac32dbac5ad3e9bd7e0bca8de62b
+    device_id: dbf26548d635462bcd85f8762f22e53f
+    entity_id: de56a768a71eee2a9837e67231df7a69
     domain: light
   mode: single
 - id: '1681489013152'
   alias: 'Router LEDs On Daytime '
   description: ''
-  trigger:
-  - platform: time
-    at: 09:00:00
-  condition: []
-  action:
+  triggers:
+  - at: 09:00:00
+    trigger: time
+  conditions: []
+  actions:
   - type: turn_on
-    device_id: 602613ae50b083026e367c8855ce5d40
-    entity_id: 594bac32dbac5ad3e9bd7e0bca8de62b
+    device_id: dbf26548d635462bcd85f8762f22e53f
+    entity_id: de56a768a71eee2a9837e67231df7a69
     domain: light
   mode: single
 - id: '1691769290763'
@@ -170,4 +170,23 @@
   actions:
   - action: shell_command.make_site_bg
     data: {}
+  mode: single
+- id: '1746759304189'
+  alias: Reload ONVIF Camera Integration After Camera Restarts
+  description: ''
+  triggers:
+  - hours: '04'
+    minutes: '44'
+    seconds: '30'
+    trigger: time_pattern
+  conditions:
+  - condition: time
+    weekday:
+    - fri
+  actions:
+  - data: {}
+    target:
+      entity_id:
+      - camera.5850_cam_1_mainstreamprofile
+    action: homeassistant.reload_config_entry
   mode: single
