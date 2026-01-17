@@ -1,0 +1,9 @@
+  - platform: snmp
+    unique_id: rt_ax58u_uptime
+    name: "RT-AX58U Uptime"
+    host: 192.168.12.1
+    version: 2c
+    baseoid: 1.3.6.1.2.1.1.3.0
+    accept_errors: true
+    unit_of_measurement: "minutes"
+    value_template: "{{((value | int) / 6000) | int}}"
