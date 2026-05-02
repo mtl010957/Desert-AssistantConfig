@@ -1,4 +1,4 @@
-  mount_5850cam1: mount LABEL=5850cam1 /media/5850cam1
-  unmount_5850cam1: umount /media/5850cam1
+  mount_media: mount /dev/sda1 /media
+  unmount_media: umount /media
   make_site_bg: bash /config/scripts/make_site_bg.sh
 

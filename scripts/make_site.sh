@@ -4,6 +4,9 @@
 datedir=`date +%Y%m%d`
 
 echo "Cam1 Get Files..." && /config/scripts/get_cam_files.sh ${datedir} /media/5850cam1 ${USR_5850CAM1} ${PWD_5850CAM1} ${URL_5850CAM1}
+echo "Cam2 Get Files..." && /config/scripts/get_cam_files.sh ${datedir} /media/5850cam2 ${USR_5850CAM2} ${PWD_5850CAM2} ${URL_5850CAM2}
 echo "Cam1 Make MP4 from Images..." && /config/scripts/images_to_mp4.sh ${datedir} 5850cam1
+echo "Cam2 Make MP4 from Images..." && /config/scripts/images_to_mp4.sh ${datedir} 5850cam2
 echo "Cam1 Make MP4..." && /config/scripts/h264_to_mp4.sh ${datedir} 5850cam1
+echo "Cam2 Make MP4..." && /config/scripts/h264_to_mp4.sh ${datedir} 5850cam2
 
