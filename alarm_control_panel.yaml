@@ -1,0 +1,5 @@
+# Manual Alarm Control Panel
+platform: manual
+name: "5850 Alarm"
+code_arm_required: false
+unique_id: "5850_alarm"

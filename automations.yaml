@@ -52,7 +52,11 @@
     input:
       cert_expiry_sensor: sensor.cert_expiry_timestamp_ha_mtl_desert_dyndns_remote_com
       time_to_check_cert: 03:20:00
-      renew_date: 20
+      renew_date: 5
+      notification_device: 3aec3abe870a3ac4d29000ec5d6d5618
+      notification_title: Desert HA Certificate Renewal
+      notification_message: Desert HA Lets Encrypt Certificate has been renewed
+      send_notification: true
 - id: '1673967752206'
   alias: Notify Refrigerator Low Voltage
   description: ''
@@ -146,7 +150,7 @@
     event: start
   conditions: []
   actions:
-  - action: shell_command.mount_5850cam1
+  - action: shell_command.mount_media
     data: {}
   mode: single
 - id: '1744393378602'
@@ -157,7 +161,7 @@
     event: shutdown
   conditions: []
   actions:
-  - action: shell_command.unmount_5850cam1
+  - action: shell_command.unmount_media
     data: {}
   mode: single
 - id: '1744393700645'
@@ -189,4 +193,150 @@
       entity_id:
       - camera.5850_cam_1_mainstreamprofile
     action: homeassistant.reload_config_entry
+  mode: single
+- id: '1777956030397'
+  alias: Arm Night at 11:00 PM
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    hours: '23'
+    minutes: '0'
+    seconds: '0'
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.home_presence
+    state:
+    - 'on'
+  actions:
+  - action: alarm_control_panel.alarm_arm_night
+    metadata: {}
+    target:
+      entity_id: alarm_control_panel.5850_alarm
+    data: {}
+  mode: single
+- id: '1777956401454'
+  alias: Armed Night
+  description: ''
+  triggers:
+  - trigger: alarm_control_panel.armed_night
+    target:
+      entity_id: alarm_control_panel.5850_alarm
+    options: {}
+  conditions: []
+  actions:
+  - action: onvif.ptz
+    metadata: {}
+    target:
+      entity_id: camera.5850_cam_2_mainstreamprofile
+    data:
+      preset: Preset001
+      move_mode: GotoPreset
+  mode: single
+- id: '1777956598669'
+  alias: Disarmed
+  description: ''
+  triggers:
+  - trigger: alarm_control_panel.disarmed
+    target:
+      entity_id: alarm_control_panel.5850_alarm
+    options: {}
+  conditions: []
+  actions:
+  - action: onvif.ptz
+    metadata: {}
+    target:
+      entity_id: camera.5850_cam_2_mainstreamprofile
+    data:
+      preset: Preset005
+      move_mode: GotoPreset
+  mode: single
+- id: '1777956793718'
+  alias: Disarm at 06:00 AM
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    hours: '06'
+    minutes: '00'
+    seconds: '00'
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.home_presence
+    state:
+    - 'on'
+  actions:
+  - action: alarm_control_panel.alarm_disarm
+    metadata: {}
+    target:
+      entity_id: alarm_control_panel.5850_alarm
+    data: {}
+  mode: single
+- id: '1777956965004'
+  alias: Armed Home
+  description: ''
+  triggers:
+  - trigger: alarm_control_panel.armed_home
+    target:
+      entity_id: alarm_control_panel.5850_alarm
+    options: {}
+  conditions: []
+  actions:
+  - action: onvif.ptz
+    metadata: {}
+    target:
+      entity_id: camera.5850_cam_2_mainstreamprofile
+    data:
+      preset: Preset001
+      move_mode: GotoPreset
+  mode: single
+- id: '1777957120846'
+  alias: Arm Away
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.home_presence
+    to:
+    - 'off'
+  conditions: []
+  actions:
+  - action: alarm_control_panel.alarm_arm_away
+    metadata: {}
+    target:
+      entity_id: alarm_control_panel.5850_alarm
+    data: {}
+  mode: single
+- id: '1777957193420'
+  alias: Armed Away
+  description: ''
+  triggers:
+  - trigger: alarm_control_panel.armed_away
+    target:
+      entity_id: alarm_control_panel.5850_alarm
+    options: {}
+  conditions: []
+  actions:
+  - action: onvif.ptz
+    metadata: {}
+    target:
+      entity_id: camera.5850_cam_2_mainstreamprofile
+    data:
+      preset: Preset001
+      move_mode: GotoPreset
+  mode: single
+- id: '1778103799304'
+  alias: Return Home
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.home_presence
+    to:
+    - 'on'
+  conditions: []
+  actions:
+  - action: alarm_control_panel.alarm_disarm
+    metadata: {}
+    target:
+      entity_id: alarm_control_panel.5850_alarm
+    data: {}
   mode: single

@@ -12,6 +12,9 @@ http:
 tts:
   - platform: google_translate
 
+# Alarm panel
+alarm_control_panel: !include alarm_control_panel.yaml
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
